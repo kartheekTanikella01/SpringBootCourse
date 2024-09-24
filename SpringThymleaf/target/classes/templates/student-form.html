@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DataBinding</title>
+</head>
+<body>
+<h1>Student Registration Form</h1>
+<form th:action="@{/processStudentForm}" th:object="${student}" method="POST">
+    First name: <input type="text" th:field="*{firstName}" />
+    <br><br>
+    Last name: <input type="text" th:field="*{lastName}" />
+    <br><br>
+    Place:
+    <select th:field="*{place}">
+        <option th:each="tempPlace : ${places}" th:value="${tempPlace}" th:text="${tempPlace}"></option>
+    </select>
+    <br><br>
+    Favourite Programming language:
+
+        <input type="radio" th:each="templang :${favouriteLanguage}"th:value="templang" th:text="${templang}" />
+    <br><br>
+    Favourite OS:
+    <input type="checkbox" th:field="${favouriteOS}" th:each="tempOS:${favouriteOS}" th:value="tempOS" th:text="${tempOS}"/>
+
+    <br><br>
+
+
+    <input type="submit" value="Submit" />
+</form>
+
+
+
+
+
+</form>
+
+</body>
+</html>
